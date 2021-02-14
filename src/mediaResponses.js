@@ -2,18 +2,6 @@ const fs = require('fs')
 
 const path = require('path')
 
-const getParty = (request, response) => {
-    streamFile(request, response, '../client/party.mp4', 'video/mp4')
-}
-
-const getBling = (request, response) => {
-    streamFile(request, response, '../client/bling.mp3', 'audio/mpeg')
-}
-
-const getBird = (request, response) => {
-    streamFile(request, response, '../client/bird.mp4', 'video/mp4')
-}
-
 function streamFile(request, response, loc, type){
     const file = path.resolve(__dirname, loc)
     fs.stat(file, (err,stats) => {
@@ -62,6 +50,18 @@ function streamFile(request, response, loc, type){
 
         return stream;
     })
+}
+
+const getParty = (request, response) => {
+    streamFile(request, response, '../client/party.mp4', 'video/mp4')
+}
+
+const getBling = (request, response) => {
+    streamFile(request, response, '../client/bling.mp3', 'audio/mpeg')
+}
+
+const getBird = (request, response) => {
+    streamFile(request, response, '../client/bird.mp4', 'video/mp4')
 }
 
 
